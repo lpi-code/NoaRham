@@ -11,11 +11,16 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${file}",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "start"
+            ],
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/dist/**/*.js"
-            ]
+            ],
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }

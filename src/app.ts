@@ -1,5 +1,6 @@
-
+import dotenv from 'dotenv';
+dotenv.config();
 
 (async () => {
-    console.log('Hello World');
+    console.log(`Hello ${process.env.TEMPLATE}`);
 })();
