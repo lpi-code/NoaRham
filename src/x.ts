@@ -35,5 +35,4 @@ const postTweet = async (text: string) => {
   }
 };
 
-// Poster un tweet
-postTweet("Seriously ?");
+postTweet("Plz don't report me, i need my A4 paper");
