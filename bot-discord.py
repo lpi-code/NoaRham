@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 # Charger les variables d'environnement depuis le fichier .env
 load_dotenv()
 
+#Mise en .env du token
 # Récupérer le token depuis la variable d'environnement
 TOKEN = os.getenv('DISCORD_TOKEN')
 
