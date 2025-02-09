@@ -1,8 +1,13 @@
 import discord
 from discord.ext import commands
+import os
+from dotenv import load_dotenv
 
-# Remplace 'TON_TOKEN' par le token de ton bot
-TOKEN = 'MTMzODEzNDI1Nzg5MzExMzkyMA.GypeyX.v_5IYJKmkf0SWtjjKorYittUXA_bBEKeVONGt4'
+# Charger les variables d'environnement depuis le fichier .env
+load_dotenv()
+
+# Récupérer le token depuis la variable d'environnement
+TOKEN = os.getenv('DISCORD_TOKEN')
 
 # Créer un objet intents pour pouvoir utiliser certaines fonctionnalités, comme les membres
 intents = discord.Intents.default()
