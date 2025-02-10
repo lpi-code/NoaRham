@@ -9,7 +9,8 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"afractal.node-essentials"
+				"afractal.node-essentials",
+				"github.vscode-github-actions"
 			]
 		}
 	}
