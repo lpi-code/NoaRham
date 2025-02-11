@@ -39,17 +39,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build project
-        run: npm run build
-
       - name: Login to Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
@@ -58,14 +47,14 @@ jobs:
           DOCKER_TAG=${{ github.ref_name }}
           if [[ "${{ github.ref_type }}" == "tag" ]]; then
             DOCKER_TAG=${{ github.ref_name }}
-            docker build -t my-app:${DOCKER_TAG} .
-            docker push my-app:${DOCKER_TAG}
-            docker tag my-app:${DOCKER_TAG} my-app:latest
-            docker push my-app:latest
+            docker build -t ${DOCKER_IMAGE_NAME}:${DOCKER_TAG} .
+            docker push ${DOCKER_IMAGE_NAME}:${DOCKER_TAG}
+            docker tag ${DOCKER_IMAGE_NAME}:${DOCKER_TAG} ${DOCKER_IMAGE_NAME}:latest
+            docker push ${DOCKER_IMAGE_NAME}:latest
           else
             DOCKER_TAG=${{ github.sha }}
-            docker build -t my-app:${DOCKER_TAG} .
-            docker push my-app:${DOCKER_TAG}
+            docker build -t ${DOCKER_IMAGE_NAME}:${DOCKER_TAG} .
+            docker push ${DOCKER_IMAGE_NAME}:${DOCKER_TAG}
           fi
 
       - name: Create GitHub Release
